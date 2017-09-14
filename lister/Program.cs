@@ -49,6 +49,16 @@ namespace lister
             // able to tell.
             //
             byte[] b = new byte[1024]; //syntax like a dynamic array in c++ but why pass the size? find out
+
+            // UTF-8 is way of encoding characters. UTF-16 (also called Unicode) is
+            // another way. You need to know what encoding the bytes are if you want
+            // to turn the bytes into strings (and not get gobbledy-gook).
+            //
+            // VS Code will show you the encoding of a text file down in the status bar.
+            // the letters "BOM" stand for "Byte Order Mark" which is a set of bytes at
+            // the front of the file that tells you what encoding the file uses. A BOM
+            // is optional so you can see files with "UTF-8" or "UTF-8 with BOM".
+            //
             UTF8Encoding temp = new UTF8Encoding(true); //I need a review of this line and the one above
 
             while (myFile.Read(b,0,b.Length) > 0)
