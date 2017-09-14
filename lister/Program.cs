@@ -89,6 +89,13 @@ namespace lister
             // mechanism to ensure the file gets closed: the "using" statement.
             //
             myFile.Close(); //do i need this?
+
+            // For your next commit, how about "fixing" up your code to apply the new
+            // information then remove all these comments. Don't worry, you can always
+            // go back in git history to look up the comments if you want to see them
+            // again.
+            //
+            // Remember, first step is to create a new branch.
         }
     }
 }
