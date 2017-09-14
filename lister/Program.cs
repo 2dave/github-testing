@@ -61,6 +61,10 @@ namespace lister
             //
             UTF8Encoding temp = new UTF8Encoding(true); //I need a review of this line and the one above
 
+            // You can create your own instance of UTF8Encoding but .NET Core already
+            // has one for you to use in a static property on the Encoding class: Encoding.UTF8
+            // I never create an instance of UTF8Encoding, I always use Encoding.UTF8.
+
             while (myFile.Read(b,0,b.Length) > 0)
             {
                 Console.WriteLine(temp.GetString(b));
