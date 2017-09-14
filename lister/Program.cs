@@ -10,13 +10,24 @@ namespace lister
     {
         static void Main(string[] args)
         {
+            // The "@" means the following is a "verbatim" string literal. Normal
+            // string literals use the backslash (\) as an escape character. For example,
+            // you can include a tab in your string by adding "\t". Or you can include a
+            // double quote in your string using "\"".
+            //
+            // In a normal string literal if you need a backslash, you have to escape it
+            // like so: "\\". As you can see that can make file paths in strings really
+            // ugly. Thus C# provides the verbatim string literal.
+            //
+            // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/string
+            //
             string path = @"C:\gitstuff\lister\data\simple-3-list.txt"; //no escape char because of @...why?
 
-            Console.WriteLine("Import data from the simple-3-list.txt file in the data directory"); 
+            Console.WriteLine("Import data from the simple-3-list.txt file in the data directory");
 
             if (!File.Exists(path))
             {
-                Console.WriteLine("simple-3-list.txt does not exist in C:\\gitstuff\\lister\\data"); 
+                Console.WriteLine("simple-3-list.txt does not exist in C:\\gitstuff\\lister\\data");
             }
 
             FileStream myFile = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None);
@@ -28,7 +39,7 @@ namespace lister
             {
                 Console.WriteLine(temp.GetString(b));
             }
-        
+
             myFile.Close(); //do i need this?
         }
     }
