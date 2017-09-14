@@ -23,6 +23,10 @@ namespace lister
             //
             string path = @"C:\gitstuff\lister\data\simple-3-list.txt"; //no escape char because of @...why?
 
+            // Instead of "string" consider using "var" to define implicitly typed
+            // variable. You can use this all over. It can really clean up your code, like so:
+            // var path = @"C:\gitstuff\lister\data\simple-3-list.txt";
+
             Console.WriteLine("Import data from the simple-3-list.txt file in the data directory");
 
             if (!File.Exists(path))
