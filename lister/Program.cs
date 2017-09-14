@@ -36,6 +36,18 @@ namespace lister
 
             FileStream myFile = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None);
 
+            // C# uses the "new" keyword to say "Give me one of these" (aka: give me memory
+            // for this thing). So in C/C++ you can say "byte b[1024]" and get a 1K of
+            // uninitialized memory on the stack, C# requires you to say "byte[] b = new byte[1024]".
+            // C# will give you the memory and initialize it to zero.
+            //
+            // Remember C# is a garbage collected language. In general, you don't control
+            // memory as closely in C/C++. For example, C# may choose to move your memory
+            // around as it sees fit. So unlike a C/C++ pointer that always points at the
+            // same memory address (until you change it), your variable "b" below may be
+            // moved by the C# runtime (aka: .NET Core) at any time... and you won't be
+            // able to tell.
+            //
             byte[] b = new byte[1024]; //syntax like a dynamic array in c++ but why pass the size? find out
             UTF8Encoding temp = new UTF8Encoding(true); //I need a review of this line and the one above
 
