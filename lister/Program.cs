@@ -70,6 +70,24 @@ namespace lister
                 Console.WriteLine(temp.GetString(b));
             }
 
+            // Yes, you need this. Well, technically, your process is going to exit
+            // immediately after this line of code and any dangling bits will get cleaned
+            // up by the operating system (when your process goes any memory or open file
+            // handles or other things like that are associated with your process).
+            //
+            // Also, if this code was in the middle of a larger program, the garbage
+            // collector would eventually get around to cleaning up theFileStream object
+            // and that would close the underlying file handle. But again, that is
+            // sloppy and you generally want to have exact control when a file is
+            // released for others to use.
+            //
+            // But it is good to be in the habit of always cleaning up after yourself.
+            //
+            // There is also a problem doing it like this. If there is an exception thrown
+            // after line 37 (when the FileStream is opened) but before this line then
+            // you won't get a chance to close the file. Fortunately, C# provides a
+            // mechanism to ensure the file gets closed: the "using" statement.
+            //
             myFile.Close(); //do i need this?
         }
     }
