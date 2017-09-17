@@ -16,21 +16,25 @@ namespace lister
 
             if (!File.Exists(path))
             {
-                Console.WriteLine("simple-3-list.txt does not exist in C:\\gitstuff\\lister\\data");
+                //Simplifying the path
+                Console.WriteLine("simple-3-list.txt does not exist in \\data directory");
             }
 
-            FileStream myFile = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None);
-
-            byte[] b = new byte[1024]; 
-            UTF8Encoding temp = new UTF8Encoding(true); 
-
-            while (myFile.Read(b,0,b.Length) > 0)
+            //rewrote to utilize the 'using' statement and removed myFile.Close as this block
+            //should automatically.            
+            using (FileStream myFile = File.OpenRead(path))
             {
-                Console.WriteLine(temp.GetString(b));
+                byte[] b = new byte[1024];
+
+                //No longer creating my own instance but want to make sure syntax below
+                //Encoding.UTF8.GetString(b) is correct.
+                //Encoding temp = Encoding.UTF8; 
+               
+                while (myFile.Read(b,0,b.Length) > 0)
+                    {
+                        Console.WriteLine(Encoding.UTF8.GetString(b));
+                    } 
             }
-
-            myFile.Close(); //do i need this?
-
          }
     }
 }
