@@ -10,7 +10,7 @@ namespace lister
         {
             //I couldn't get the syntax ".\data\simple-3-list.txt" syntax to work. 
             //is there a better way to do this line?
-            var path = @"C:\gittraining\github-testing\lister\data\simple-3-list.txt";
+            var path = @"C:\gitstuff\lister\data\simple-3-list.txt";
 
             Console.WriteLine("Import data from the simple-3-list.txt file in the data directory");
 
