@@ -31,10 +31,6 @@ namespace lister
             {
                 Console.WriteLine("Could not find: {0}", e.FileName);
             }
-            catch (Exception ex)
-            {
-                 Console.WriteLine(ex);
-            }
         }
     }
 }
