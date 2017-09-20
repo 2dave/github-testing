@@ -18,10 +18,11 @@ namespace lister
                 using (FileStream myFile = File.OpenRead(path))
                 {
                     byte[] b = new byte[1024];
+                    int read;
 
-                    while (myFile.Read(b,0,b.Length) > 0)
+                    while ((read = myFile.Read(b, 0, b.Length)) > 0)
                     {
-                        Console.WriteLine(Encoding.UTF8.GetString(b, 0, (int)myFile.Length));
+                        Console.WriteLine(Encoding.UTF8.GetString(b, 0, read));
                     }
                 }
             }
