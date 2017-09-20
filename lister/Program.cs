@@ -17,13 +17,11 @@ namespace lister
             {
                 using (FileStream myFile = File.OpenRead(path))
                 {
-                    // Changing this array to use the length of the file (as opposed to staright 1024) seems to have fixed
-                    // of reading too much of the file on a 64-bit machine and displaying a bunch of '?'s in the 
-                    // output. Let me know if this was a good solution. I want to make sure I'm not missing something.
-                    byte[] b = new byte[myFile.Length];
+                    byte[] b = new byte[1024];
+
                     while (myFile.Read(b,0,b.Length) > 0)
                     {
-                        Console.WriteLine(Encoding.UTF8.GetString(b));
+                        Console.WriteLine(Encoding.UTF8.GetString(b, 0, (int)myFile.Length));
                     }
                 }
             }
