@@ -27,9 +27,9 @@ namespace lister
                     }
                 }
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException e)
             {
-                Console.WriteLine("FILE NOT FOUND IN .\\data");
+                Console.WriteLine("Could not find: {0}", e.FileName);
             }
             catch (Exception ex)
             {
