@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Text; 
+using System.Text;
 
 namespace lister
 {
@@ -8,7 +8,8 @@ namespace lister
     {
         static void Main(string[] args)
         {
-            // I included the suggested 'ItemGroup' inside the .csproj to make the path more manageable
+            // This file is included as Content in the project file so it is copied to the output path
+            // as part of the build.
             var path = @".\data\simple-3-list.txt";
 
             Console.WriteLine("Import data from the simple-3-list.txt file in the data directory");
@@ -33,13 +34,7 @@ namespace lister
             catch (Exception ex)
             {
                  Console.WriteLine(ex);
-            }  
+            }
         }
     }
-
-    // I changed the style of the comments. Do you usually just leave some comments of the the 
-    // commit you worked on? For example, the only comments in this code at this very moment are
-    // ones related to this commit I'm pushing now.
-    // Also at this point, I may have resolved all outstanding issues. If that is so, can we do
-    // code review so that I can merge this branch with the master?
 }
