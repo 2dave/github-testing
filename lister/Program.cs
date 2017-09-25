@@ -15,30 +15,33 @@ namespace lister
 
             try
             {
-                using (StreamReader file = new StreamReader(path))
+                List<string> contents = ReadFile(path);
+
+                foreach (var line in contents)
                 {
-                    Console.WriteLine("Using StreamReader to populate a new string array and then displaying that array.");
-                    string line;
-
-                    var list = new List<string>();
-
-                    while ((line = file.ReadLine()) != null)
-                    {
-                        list.Add(line);
-                    }
-                    string[] result = list.ToArray();
-
-                    foreach (var item in result)
-                    {
-                        Console.WriteLine(item.ToString());
-                    }
+                    Console.WriteLine(line);
                 }
             }
-
             catch (FileNotFoundException e)
             {
                 Console.WriteLine("Could not find: {0}", e.FileName);
             }
+        }
+
+        private static List<string> ReadFile(string path)
+        {
+            var list = new List<string>();
+
+            using (StreamReader file = new StreamReader(path))
+            {
+                string line;
+
+                while ((line = file.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+            }
+            return list;
         }
     }
 }
