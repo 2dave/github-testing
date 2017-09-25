@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
 
 namespace lister
 {
@@ -8,25 +9,32 @@ namespace lister
     {
         static void Main(string[] args)
         {
-            // This file is included as Content in the project file so it is copied to the output path
-            // as part of the build.
             var path = @".\data\simple-3-list.txt";
 
-            Console.WriteLine("Import data from the simple-3-list.txt file in the data directory");
+            Console.WriteLine("Importing data from the simple-3-list.txt file in the data directory.");
 
             try
             {
-                using (FileStream myFile = File.OpenRead(path))
+                using (StreamReader file = new StreamReader(path))
                 {
-                    byte[] b = new byte[1024];
-                    int read;
+                    Console.WriteLine("Using StreamReader to populate a new string array and then displaying that array.");
+                    string line;
 
-                    while ((read = myFile.Read(b, 0, b.Length)) > 0)
+                    var list = new List<string>();
+
+                    while ((line = file.ReadLine()) != null)
                     {
-                        Console.WriteLine(Encoding.UTF8.GetString(b, 0, read));
+                        list.Add(line);
+                    }
+                    string[] result = list.ToArray();
+
+                    foreach (var item in result)
+                    {
+                        Console.WriteLine(item.ToString());
                     }
                 }
             }
+
             catch (FileNotFoundException e)
             {
                 Console.WriteLine("Could not find: {0}", e.FileName);
