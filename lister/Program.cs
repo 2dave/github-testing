@@ -16,11 +16,8 @@ namespace lister
             try
             {
                 List<string> contents = ReadFile(path);
-
-                foreach (var line in contents)
-                {
-                    Console.WriteLine(line);
-                }
+                
+                DisplayContents(contents);
             }
             catch (FileNotFoundException e)
             {
@@ -42,6 +39,14 @@ namespace lister
                 }
             }
             return list;
+        }
+       
+        private static void DisplayContents(List<string> contents)
+        {
+            foreach (var line in contents)
+            {
+                Console.WriteLine(line);
+            }
         }
     }
 }
