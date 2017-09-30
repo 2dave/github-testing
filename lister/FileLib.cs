@@ -1,16 +1,24 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace CustomClasses
+namespace TwoDave.Lister
 {
-    // Why cannot I not name the class the same as the file name unless in a namespace?
-    // I am also unsure of the proper use of namespaces
-    public class FileLib
+    internal class FileLib
     {
-        public FileLib()
+
+#if add_to_onenote
+        // Add to OneNote
+        private FileLib()
         {
             // default constructor
         }
+
+        public static FileLib Create()
+        {
+            var t = new FileLib();
+            return t;
+        }
+#endif
 
         public List<string> ReadFile(string path)
         {
@@ -26,12 +34,6 @@ namespace CustomClasses
                 }
             }
             return list;
-        }
-
-        // Need to read more on if this is the correct syntax. Does it even need this?
-        ~FileLib()
-        {
-            // Default destructor
         }
     }
 }

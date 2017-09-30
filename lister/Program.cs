@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using CustomClasses;
 
-namespace lister
+namespace TwoDave.Lister
 {
     class Program
     {
@@ -16,9 +15,9 @@ namespace lister
             try
             {
                 FileLib test = new FileLib();   
-                //FileLib answer = new FileLib.ReadFile(path);
+                //var test = FileLib.Create();            
 
-                List<string> contents = ReadFile(path);
+                List<string> contents = test.ReadFile(path);
                 
                 DisplayContents(contents);
             }
@@ -27,23 +26,7 @@ namespace lister
                 Console.WriteLine("Could not find: {0}", e.FileName);
             }
         }
-
-        private static List<string> ReadFile(string path)
-        {
-            var list = new List<string>();
-
-            using (StreamReader file = new StreamReader(path))
-            {
-                string line;
-
-                while ((line = file.ReadLine()) != null)
-                {
-                    list.Add(line);
-                }
-            }
-            return list;
-        }
-       
+      
         private static void DisplayContents(List<string> contents)
         {
             foreach (var line in contents)
