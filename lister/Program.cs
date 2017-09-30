@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Collections.Generic;
+using CustomClasses;
 
 namespace lister
 {
@@ -15,6 +15,9 @@ namespace lister
 
             try
             {
+                FileLib test = new FileLib();   
+                //FileLib answer = new FileLib.ReadFile(path);
+
                 List<string> contents = ReadFile(path);
                 
                 DisplayContents(contents);
