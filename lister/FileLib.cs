@@ -30,6 +30,7 @@ namespace TwoDave.Lister
 
                 while ((line = file.ReadLine()) != null)
                 {
+                    var temp = line.Split(' ');
                     list.Add(line);
                 }
             }
