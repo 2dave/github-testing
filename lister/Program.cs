@@ -15,7 +15,7 @@ namespace TwoDave.Lister
             try
             {
                 FileLib test = new FileLib();   
-                //var test = FileLib.Create();            
+                //var test = FileLib.Create(); // different way to instantiate (if I define Create())                       
 
                 List<string> contents = test.ReadFile(path);
                 
