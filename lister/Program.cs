@@ -21,9 +21,12 @@ namespace TwoDave.Lister
                 
                 DisplayContents(contents);
 
-                MyLinkedList mylist = new MyLinkedList();
-
-                mylist.AddToEnd(contents);                  
+                MyLinkedList mylist = new MyLinkedList(); 
+                           
+                mylist.AddToEnd(contents); 
+                mylist.AddToEnd("a string");
+                mylist.AddToEnd(777);
+                mylist.PrintList();
             }
             catch (FileNotFoundException e)
             {

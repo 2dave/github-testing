@@ -38,11 +38,11 @@ namespace TwoDave.Lister
         {
             head = null;
         }
-        public MyLinkedList(object data)
+/*         public MyLinkedList(object data)
         {
             // Now that I have a big object I need to split it up into different nodes
             // TODO a bunch of stuff...
-        }
+        } */
         public void AddToEnd(object data)
         {
             if (head == null)
@@ -69,7 +69,7 @@ namespace TwoDave.Lister
         }
         public void PrintList()
         {
-            Console.Write("HEAD -> ");
+            Console.Write("Displaying Linked List: HEAD -> ");
             Node curr = head;
             while (curr.next != null)
             {
