@@ -14,7 +14,7 @@ namespace TwoDave.Lister
         }
         public void PrintNode() 
         {
-            Console.Write("|" + data + "|->");
+            Console.Write("" + data + ">");
             if (next != null)
             {
                 next.PrintNode(); 

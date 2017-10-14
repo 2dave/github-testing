@@ -20,6 +20,10 @@ namespace TwoDave.Lister
                 List<string> contents = test.ReadFile(path);
                 
                 DisplayContents(contents);
+
+                MyLinkedList mylist = new MyLinkedList();
+
+                mylist.AddToEnd(contents);                  
             }
             catch (FileNotFoundException e)
             {
