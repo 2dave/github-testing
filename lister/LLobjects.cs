@@ -6,20 +6,14 @@ namespace TwoDave.Lister
     {
         public object data;
         public Node next;
+        public Node previous;
 
-        public Node(object i) 
+        public Node(object i)
         {
             data = i;
             next = null;
         }
-        public void PrintNode() 
-        {
-            Console.Write("" + data + ">");
-            if (next != null)
-            {
-                next.PrintNode(); 
-            }
-        }
+
         // A node can be in one of two situations - the 'next' Node can be null
         // (at the end of the list) or it can point to a valid node.
         public void AddToEnd(object data)
@@ -28,7 +22,7 @@ namespace TwoDave.Lister
             {
                 next = new Node(data);
             }
-            else 
+            else
             {
                 next.AddToEnd(data); // Passing responsibility down the chain until getting 'next' == 'null'
             }
@@ -37,42 +31,58 @@ namespace TwoDave.Lister
 
     public class MyLinkedList
     {
-        public Node HeadNode; 
+        public Node head;
+        public Node current;
 
         public MyLinkedList()
         {
-            HeadNode = null;     
+            head = null;
         }
-        public void AddToEnd(object data) 
+        public MyLinkedList(object data)
         {
-            if (HeadNode == null)
+            // Now that I have a big object I need to split it up into different nodes
+            // The bulk of the program will be here. Going to use some of the stuff from FileLib
+            // in here to make each line a node to start with.
+
+
+        }
+        public void AddToEnd(object data)
+        {
+            if (head == null)
             {
-                HeadNode = new Node(data);
+                head = new Node(data);
             }
-            else 
+            else
             {
-                HeadNode.AddToEnd(data); 
+                head.AddToEnd(data);
             }
         }
         public void AddToBeginning(object data) // Head node either null or a valid node
         {
-            if (HeadNode == null) // Then you are already at the beginning
+            if (head == null) // Then you are already at the beginning
             {
-                HeadNode = new Node(data);
+                head = new Node(data);
             }
             else // Then need to add a temporary node and then adjust pointers
             {
-                Node tempnode = new Node(data); 
-                tempnode.next = HeadNode; // Temp node is now pointing to what current head is pointing to
-                HeadNode = tempnode; // Now adjust head pointer to what temp is pointing to
+                Node tempnode = new Node(data);
+                tempnode.next = head; // Temp node is now pointing to what current head is pointing to
+                head = tempnode; // Now adjust head pointer to what temp is pointing to
             }
         }
         public void PrintList()
         {
-            if (HeadNode != null) // This means it is a valid node
+            Console.Write("HEAD -> ");
+            Node curr = head;
+            while (curr.next != null)
             {
-                HeadNode.PrintNode(); 
+                Console.Write(curr.data);
+                curr = curr.next;
+                Console.Write(" -> ");
             }
+            Console.Write(curr.data); // We need to display the final node because the loop above won't when .next == null
+            Console.Write(" -> NULL"); // at the end now after the above loop
+
         }
     }
 }
