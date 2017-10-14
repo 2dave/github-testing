@@ -2,7 +2,7 @@ using System;
 
 namespace TwoDave.Lister
 {
-    public class Node 
+    public class Node
     {
         public object data;
         public Node next;
@@ -38,11 +38,11 @@ namespace TwoDave.Lister
         {
             head = null;
         }
-/*         public MyLinkedList(object data)
-        {
-            // Now that I have a big object I need to split it up into different nodes
-            // TODO a bunch of stuff...
-        } */
+        /*         public MyLinkedList(object data)
+                {
+                    // Now that I have a big object I need to split it up into different nodes
+                    // TODO a bunch of stuff...
+                } */
         public void AddToEnd(object data)
         {
             if (head == null)
@@ -69,16 +69,14 @@ namespace TwoDave.Lister
         }
         public void PrintList()
         {
-            Console.Write("Displaying Linked List: HEAD -> ");
             Node curr = head;
             while (curr.next != null)
             {
                 Console.Write(curr.data);
+                Console.Write(" > ");
                 curr = curr.next;
-                Console.Write(" -> ");
             }
             Console.Write(curr.data); // We need to display the final node because the loop above won't when .next == null
-            Console.Write(" -> NULL"); // at the end now after the above loop
         }
     }
 }
