@@ -2,7 +2,7 @@ using System;
 
 namespace TwoDave.Lister
 {
-    public class Node // probably switch this and my linked list class to internal after I ask about namspace / assembly relationship
+    public class Node 
     {
         public object data;
         public Node next;
@@ -41,10 +41,7 @@ namespace TwoDave.Lister
         public MyLinkedList(object data)
         {
             // Now that I have a big object I need to split it up into different nodes
-            // The bulk of the program will be here. Going to use some of the stuff from FileLib
-            // in here to make each line a node to start with.
-
-
+            // TODO a bunch of stuff...
         }
         public void AddToEnd(object data)
         {
@@ -82,7 +79,6 @@ namespace TwoDave.Lister
             }
             Console.Write(curr.data); // We need to display the final node because the loop above won't when .next == null
             Console.Write(" -> NULL"); // at the end now after the above loop
-
         }
     }
 }
