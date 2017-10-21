@@ -5,9 +5,9 @@ namespace TwoDave.Lister
 {
     internal class FileLib
     {
-        public MyLinkedList ReadFile(string path)
+        public NodeCollection ReadFile(string path)
         {
-            MyLinkedList templist = new MyLinkedList();
+            NodeCollection templist = new NodeCollection();            
 
             using (StreamReader file = new StreamReader(path))
             {
@@ -16,9 +16,9 @@ namespace TwoDave.Lister
                 while ((line = file.ReadLine()) != null)
                 {
                     var temp = line.Split(' ');
-                    templist.AddToEnd(temp[0]);
-                    //templist.AddToEnd(temp[1]);
-                    templist.AddToEnd(temp[2]);
+                    //templist.Add(temp[0]);
+                    //templist.Add(temp[1]);
+                    //templist.Add(temp[2]);
                 }
             }
             return templist;

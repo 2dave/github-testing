@@ -22,7 +22,8 @@ namespace TwoDave.Lister
                 //DisplayContents(contents);
                 #endregion
 
-                MyLinkedList data = test.ReadFile(path);
+                //MyLinkedList data = test.ReadFile(path);
+                NodeCollection data = test.ReadFile(path);
                 DisplayList(data);
 
             }
@@ -42,16 +43,10 @@ namespace TwoDave.Lister
         }
         #endregion
 
-        private static void DisplayList(MyLinkedList data)
+        private static void DisplayList(NodeCollection data)
         {
-            data.PrintList();
-
-            Console.WriteLine("\nDebugging:");
-            Console.WriteLine("Object count = {0}", data.Count);
-            int index = data.IndexOf("d");
-            Console.WriteLine(index);
-            bool contains = data.Contains("b");
-            Console.WriteLine(contains);
+            //data.PrintList();
+            Console.WriteLine("Debugging:");
         }
     }
 }
