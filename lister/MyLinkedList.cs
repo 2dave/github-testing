@@ -22,7 +22,7 @@ namespace TwoDave.Lister
 
         public bool Empty
         {
-            get { return this.size == 0;}
+            get { return this.size == 0; }
         }
 
         public int Count
@@ -78,11 +78,13 @@ namespace TwoDave.Lister
         public int IndexOf(object data)
         {
             Node current = this.head;
-            
+
             for (int i = 0; i < this.Count; i++)
             {
                 if (current.data.Equals(data))
-                return i;
+                {
+                    return i;
+                }
                 current = current.next;
             }
 
@@ -101,7 +103,7 @@ namespace TwoDave.Lister
             // 2.) x and y do not exist in the list
             // 3.) One of them, x or y, exist but not both
         }
-        
+
         public void PrintList()
         {
             Node curr = head;
