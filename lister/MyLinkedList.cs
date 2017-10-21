@@ -94,7 +94,14 @@ namespace TwoDave.Lister
             return this.IndexOf(data) != -1;
         }
 
-
+        public void AddSpecifically(object x, object y)
+        {
+            // different possibilities
+            // 1.) x and y exist in the list
+            // 2.) x and y do not exist in the list
+            // 3.) One of them, x or y, exist but not both
+        }
+        
         public void PrintList()
         {
             Node curr = head;

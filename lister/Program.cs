@@ -45,8 +45,13 @@ namespace TwoDave.Lister
         private static void DisplayList(MyLinkedList data)
         {
             data.PrintList();
+
             Console.WriteLine("\nDebugging:");
             Console.WriteLine("Object count = {0}", data.Count);
+            int index = data.IndexOf("d");
+            Console.WriteLine(index);
+            bool contains = data.Contains("b");
+            Console.WriteLine(contains);
         }
     }
 }

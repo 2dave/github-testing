@@ -17,6 +17,7 @@ namespace TwoDave.Lister
                 {
                     var temp = line.Split(' ');
                     templist.AddToEnd(temp[0]);
+                    //templist.AddToEnd(temp[1]);
                     templist.AddToEnd(temp[2]);
                 }
             }
