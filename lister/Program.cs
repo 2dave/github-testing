@@ -8,7 +8,7 @@ namespace TwoDave.Lister
     {
         static void Main(string[] args)
         {
-            var path = @".\data\simple-1-list.txt";
+            var path = @".\data\simple-3-list.txt";
 
             Console.WriteLine("Importing data from the simple-3-list.txt file in the data directory.");
 
