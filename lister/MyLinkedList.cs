@@ -37,6 +37,8 @@ namespace TwoDave.Lister
             //    data = newdata
             //};
 
+            size++;
+
             var tempnode = new Node();
             tempnode.data = newdata;
 
@@ -86,7 +88,13 @@ namespace TwoDave.Lister
 
             return -1;
         }
-        
+
+        public bool Contains(object data)
+        {
+            return this.IndexOf(data) != -1;
+        }
+
+
         public void PrintList()
         {
             Node curr = head;

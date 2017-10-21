@@ -15,10 +15,12 @@ namespace TwoDave.Lister
             try
             {
                 FileLib test = new FileLib();
+                #region Removing block when OneNote is organized
                 //var test = FileLib.Create(); // different way to instantiate (if I define Create())                       
 
                 //List<string> contents = test.ReadFile(path);                
                 //DisplayContents(contents);
+                #endregion
 
                 MyLinkedList data = test.ReadFile(path);
                 DisplayList(data);
@@ -30,6 +32,7 @@ namespace TwoDave.Lister
             }
         }
 
+        #region Removing block when OneNote is organized
         private static void DisplayContents(List<string> contents)
         {
             foreach (var line in contents)
@@ -37,10 +40,13 @@ namespace TwoDave.Lister
                 Console.WriteLine(line);
             }
         }
+        #endregion
 
         private static void DisplayList(MyLinkedList data)
         {
             data.PrintList();
+            Console.WriteLine("\nDebugging:");
+            Console.WriteLine("Object count = {0}", data.Count);
         }
     }
 }
