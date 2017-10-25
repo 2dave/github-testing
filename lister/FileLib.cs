@@ -16,6 +16,10 @@ namespace TwoDave.Lister
                 while ((line = file.ReadLine()) != null)
                 {
                     var temp = line.Split(' ');
+                    List<Node> newnodes = new List<Node>(); //unusual syntax
+                    Node tempnode = new Node();
+                    tempnode.data = temp[0];
+                    newnodes.Add(tempnode);
                     //templist.Add(temp[0]);
                     //templist.Add(temp[1]);
                     //templist.Add(temp[2]);
