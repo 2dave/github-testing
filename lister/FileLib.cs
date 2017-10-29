@@ -23,6 +23,17 @@ namespace TwoDave.Lister
                     tempnode1.data = temp[0];
                     tempnode2.data = temp[2];
 
+                    string capturecommand = temp[1];
+
+                    if  (capturecommand == ">")
+                    {
+                        tempnode1.next = tempnode2;
+                    }
+                    else if (capturecommand == "<")
+                    {
+                        tempnode2.next = tempnode1;
+                    }
+
                     newnodes.Add(tempnode1);
                     newnodes.Add(tempnode2);
 
