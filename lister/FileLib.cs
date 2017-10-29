@@ -17,12 +17,38 @@ namespace TwoDave.Lister
                 while ((line = file.ReadLine()) != null)
                 {
                     var temp = line.Split(' ');
+                    Node tempnode1 = null;
+                    Node tempnode2 = null;
 
-                    Node tempnode1 = new Node();
-                    Node tempnode2 = new Node();
+                    foreach (Node n in newnodes) //Get
+                    {
+                        if (temp[0] == (string)n.data)
+                        {
+                            tempnode1 = n;
+                        }
+                        if (temp[2] == (string)n.data)
+                        {
+                            tempnode2 = n;                      
+                        }
+                    }
 
-                    tempnode1.data = temp[0];
-                    tempnode2.data = temp[2];
+                    if (tempnode1 == null) //Create
+                    {
+                        tempnode1 = new Node();
+                        tempnode1.data = temp[0];
+                        newnodes.Add(tempnode1);
+                    }
+                    if (tempnode2 == null)
+                    {
+                        tempnode2 = new Node();
+                        tempnode2.data = temp[2];
+                        newnodes.Add(tempnode2);
+                    }
+
+                    // for (int i = 0; i < newnodes.Count; i++)
+                    // {
+                    //     Node n = newnodes[i];
+                    // }
 
                     string capturecommand = temp[1];
 
@@ -34,9 +60,6 @@ namespace TwoDave.Lister
                     {
                         tempnode2.next = tempnode1;
                     }
-
-                    newnodes.Add(tempnode1);
-                    newnodes.Add(tempnode2);
 
                     foreach (Node n in newnodes)
                     {
