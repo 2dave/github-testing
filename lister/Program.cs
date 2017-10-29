@@ -14,17 +14,7 @@ namespace TwoDave.Lister
 
             try
             {
-                FileLib test = new FileLib();
-                #region Removing block when OneNote is organized
-                //var test = FileLib.Create(); // different way to instantiate (if I define Create())                       
-
-                //List<string> contents = test.ReadFile(path);                
-                //DisplayContents(contents);
-                #endregion
-
-                //MyLinkedList data = test.ReadFile(path);
-                NodeCollection data = test.ReadFile(path);
-                DisplayList(data);
+                string testprint = FileLib.ReadCommandFile(path);
 
             }
             catch (FileNotFoundException e)
@@ -33,20 +23,10 @@ namespace TwoDave.Lister
             }
         }
 
-        #region Removing block when OneNote is organized
-        private static void DisplayContents(List<string> contents)
-        {
-            foreach (var line in contents)
-            {
-                Console.WriteLine(line);
-            }
-        }
-        #endregion
-
-        private static void DisplayList(NodeCollection data)
+/*         private static void DisplayList(NodeCollection data)
         {
             //data.PrintList();
             Console.WriteLine("Debugging:");
-        }
+        } */
     }
 }

@@ -6,10 +6,8 @@ namespace TwoDave.Lister
 {
     internal class FileLib
     {
-        public NodeCollection ReadFile(string path)
+        public static string ReadCommandFile(string path)
         {
-            NodeCollection templist = new NodeCollection(); // currently not using    
-
             using (StreamReader file = new StreamReader(path))
             {
                 string line;
@@ -18,7 +16,7 @@ namespace TwoDave.Lister
                 {
                     var temp = line.Split(' ');
 
-                    List<Node> newnodes = new List<Node>(); 
+                    List<Node> newnodes = new List<Node>();
                     Node tempnode1 = new Node();
                     Node tempnode2 = new Node();
 
@@ -34,7 +32,8 @@ namespace TwoDave.Lister
                     }
                 }
             }
-            return templist;
+
+            return "not used";            
         }
     }
 }
