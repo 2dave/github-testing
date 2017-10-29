@@ -12,11 +12,12 @@ namespace TwoDave.Lister
             {
                 string line;
 
+                List<Node> newnodes = new List<Node>();
+
                 while ((line = file.ReadLine()) != null)
                 {
                     var temp = line.Split(' ');
 
-                    List<Node> newnodes = new List<Node>();
                     Node tempnode1 = new Node();
                     Node tempnode2 = new Node();
 
@@ -25,7 +26,7 @@ namespace TwoDave.Lister
 
                     string capturecommand = temp[1];
 
-                    if  (capturecommand == ">")
+                    if (capturecommand == ">")
                     {
                         tempnode1.next = tempnode2;
                     }
@@ -42,7 +43,7 @@ namespace TwoDave.Lister
                         Console.WriteLine("The list of nodes --> {0}", n.data.ToString());
                     }
                 }
-            }           
+            }
         }
     }
 }
