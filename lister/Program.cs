@@ -14,7 +14,7 @@ namespace TwoDave.Lister
 
             try
             {
-                string testprint = FileLib.ReadCommandFile(path);
+                FileLib.ReadCommandFile(path);
 
             }
             catch (FileNotFoundException e)

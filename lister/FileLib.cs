@@ -6,7 +6,7 @@ namespace TwoDave.Lister
 {
     internal class FileLib
     {
-        public static string ReadCommandFile(string path)
+        public static void ReadCommandFile(string path)
         {
             using (StreamReader file = new StreamReader(path))
             {
@@ -31,9 +31,7 @@ namespace TwoDave.Lister
                         Console.WriteLine("The list of nodes --> {0}", n.data.ToString());
                     }
                 }
-            }
-
-            return "not used";            
+            }           
         }
     }
 }
