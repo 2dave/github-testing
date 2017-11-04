@@ -6,7 +6,7 @@ namespace TwoDave.Lister
 {
     internal class FileLib
     {
-        public static void ReadCommandFile(string path)
+        public static void ReadCommand(string path)
         {
             using (StreamReader file = new StreamReader(path))
             {
@@ -59,14 +59,28 @@ namespace TwoDave.Lister
                     else if (capturecommand == "<")
                     {
                         tempnode2.next = tempnode1;
-                    }
-
-                    foreach (Node n in newnodes)
-                    {
-                        Console.WriteLine("The list of nodes --> {0}", n.data.ToString());
-                    }
+                    }                
                 }
+
+                DisplayData(newnodes);
             }
         }
+
+        public static void DisplayData(List<Node> lon)
+        {
+            Console.WriteLine("---LIST OF NODES---");
+
+            foreach (Node n in lon)
+            {
+                Console.Write(" {0} ", n.data.ToString());
+
+                if (n.next != null)
+                {
+                    Console.Write(" > ");
+                }
+            }
+
+            Console.WriteLine(" ");
+        }        
     }
 }

@@ -6,7 +6,7 @@ namespace TwoDave.Lister
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             var path = @".\data\simple-3-list.txt";
 
@@ -14,13 +14,14 @@ namespace TwoDave.Lister
 
             try
             {
-                FileLib.ReadCommandFile(path);
-
+                FileLib.ReadCommand(path);
             }
             catch (FileNotFoundException e)
             {
                 Console.WriteLine("Could not find: {0}", e.FileName);
+                return 1;
             }
+            return 0;
         }
 
 /*         private static void DisplayList(NodeCollection data)
