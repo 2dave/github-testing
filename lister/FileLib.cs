@@ -62,8 +62,8 @@ namespace TwoDave.Lister
                     }
                 }
 
-                //Node head = FindHead(newnodes);
-                Node head = newnodes[2];
+                Node head = FindHead(newnodes);
+                //Node head = newnodes[2];
                 DisplayData(head);
             }
         }
@@ -86,14 +86,22 @@ namespace TwoDave.Lister
                 node = node.next;
             }
 
-
-
             Console.WriteLine();
         }
 
         public static Node FindHead(List<Node> lon)
         {
-            throw new NotImplementedException();
+            List<Node> heads = new List<Node>(lon);
+
+            foreach (var node in lon)
+            {
+                if (node.next != null)
+                {
+                    heads.Remove(node.next);
+                }
+
+            }
+            return heads[0];
         }
     }
 }
