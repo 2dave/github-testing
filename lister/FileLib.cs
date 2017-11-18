@@ -28,7 +28,7 @@ namespace TwoDave.Lister
                         }
                         if (temp[2] == (string)n.data)
                         {
-                            tempnode2 = n;                      
+                            tempnode2 = n;
                         }
                     }
 
@@ -59,28 +59,41 @@ namespace TwoDave.Lister
                     else if (capturecommand == "<")
                     {
                         tempnode2.next = tempnode1;
-                    }                
+                    }
                 }
 
-                DisplayData(newnodes);
+                //Node head = FindHead(newnodes);
+                Node head = newnodes[2];
+                DisplayData(head);
             }
         }
 
-        public static void DisplayData(List<Node> lon)
+        public static void DisplayData(Node head)
         {
             Console.WriteLine("---LIST OF NODES---");
 
-            foreach (Node n in lon)
-            {
-                Console.Write(" {0} ", n.data.ToString());
+            Node node = head;
 
-                if (n.next != null)
+            while (node != null)
+            {
+                Console.Write(node.data);
+
+                if (node.next != null)
                 {
                     Console.Write(" > ");
                 }
+
+                node = node.next;
             }
 
-            Console.WriteLine(" ");
-        }        
+
+
+            Console.WriteLine();
+        }
+
+        public static Node FindHead(List<Node> lon)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
