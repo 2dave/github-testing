@@ -10,7 +10,7 @@ namespace TwoDave.Lister
         {
             var path = @".\data\simple-3-list.txt";
 
-            Console.WriteLine("Importing data from the simple-3-list.txt file in the data directory.");
+            Console.WriteLine("Data file: {0}", path);
 
             try
             {

@@ -70,8 +70,6 @@ namespace TwoDave.Lister
 
         public static void DisplayData(Node head)
         {
-            Console.WriteLine("---LIST OF NODES---");
-
             Node node = head;
 
             while (node != null)
@@ -99,7 +97,6 @@ namespace TwoDave.Lister
                 {
                     heads.Remove(node.next);
                 }
-
             }
             return heads[0];
         }
