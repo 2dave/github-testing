@@ -1,52 +1,33 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Collections.Generic;
 
-namespace lister
+namespace TwoDave.Lister
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             var path = @".\data\simple-3-list.txt";
 
-            Console.WriteLine("Importing data from the simple-3-list.txt file in the data directory.");
+            Console.WriteLine("Data file: {0}", path);
 
             try
             {
-                List<string> contents = ReadFile(path);
-                
-                DisplayContents(contents);
+                FileLib.ReadCommand(path);
             }
             catch (FileNotFoundException e)
             {
                 Console.WriteLine("Could not find: {0}", e.FileName);
+                return 1;
             }
+            return 0;
         }
 
-        private static List<string> ReadFile(string path)
+/*         private static void DisplayList(NodeCollection data)
         {
-            var list = new List<string>();
-
-            using (StreamReader file = new StreamReader(path))
-            {
-                string line;
-
-                while ((line = file.ReadLine()) != null)
-                {
-                    list.Add(line);
-                }
-            }
-            return list;
-        }
-       
-        private static void DisplayContents(List<string> contents)
-        {
-            foreach (var line in contents)
-            {
-                Console.WriteLine(line);
-            }
-        }
+            //data.PrintList();
+            Console.WriteLine("Debugging:");
+        } */
     }
 }
