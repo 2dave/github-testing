@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TwoDave.Lister
 {
-    internal class FileLib
+    public class FileLib
     {
         public static void ReadCommand(string path)
         {
