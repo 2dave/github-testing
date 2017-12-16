@@ -6,7 +6,7 @@ namespace TwoDave.Lister
 {
     public class FileLib
     {
-        public static void ReadCommand(string path)
+        public static Node ReadCommand(string path)
         {
             using (StreamReader file = new StreamReader(path))
             {
@@ -64,7 +64,9 @@ namespace TwoDave.Lister
 
                 Node head = FindHead(newnodes);
                 //Node head = newnodes[2];
-                DisplayData(head);
+                //DisplayData(head);
+
+                return head;
             }
         }
 
@@ -87,7 +89,29 @@ namespace TwoDave.Lister
             Console.WriteLine();
         }
 
-        public static Node FindHead(List<Node> lon)
+        public static string GenerateString(Node head)
+        {
+            Node node = head;
+            string result = string.Empty;
+
+            while (node != null)
+            {
+                //Console.Write(node.data);
+                result += node.data;
+
+                if (node.next != null)
+                {                    
+                    //Console.Write(" > ");
+                    result += " > ";
+                }
+
+                node = node.next;
+            }
+           
+           return result;
+        }
+
+        private static Node FindHead(List<Node> lon)
         {
             List<Node> heads = new List<Node>(lon);
 

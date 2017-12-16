@@ -16,8 +16,10 @@ namespace TwoDave.Lister.Test
         public void Test3()
         {
             var path = @".\data\simple-3-list.txt";
-            FileLib.ReadCommand(path);
-            //Assert.Equal("a > b > c > d", x);
+            Node n = FileLib.ReadCommand(path);
+            string x = FileLib.GenerateString(n);
+
+            Assert.Equal("a > b > c > d > e > f > g > h", x);
             //Assert.Same()
         }
 

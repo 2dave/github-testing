@@ -14,7 +14,10 @@ namespace TwoDave.Lister
 
             try
             {
-                FileLib.ReadCommand(path);
+                Node n = FileLib.ReadCommand(path);
+                //FileLib.DisplayData(n);
+                string result = FileLib.GenerateString(n);
+                Console.WriteLine(result);
             }
             catch (FileNotFoundException e)
             {
@@ -23,11 +26,5 @@ namespace TwoDave.Lister
             }
             return 0;
         }
-
-/*         private static void DisplayList(NodeCollection data)
-        {
-            //data.PrintList();
-            Console.WriteLine("Debugging:");
-        } */
     }
 }
