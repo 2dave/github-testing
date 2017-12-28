@@ -89,6 +89,8 @@ namespace TwoDave.Lister
             Console.WriteLine();
         }
 
+        // Used this in order to eliminate the need for a helper DisplayData just to display
+        // Instead I can just use Console.WriteLine on a string
         public static string GenerateString(Node head)
         {
             Node node = head;
@@ -106,12 +108,11 @@ namespace TwoDave.Lister
                 }
 
                 node = node.next;
-            }
-           
+            }                     
            return result;
         }
 
-        private static Node FindHead(List<Node> lon)
+        public static Node FindHead(List<Node> lon)
         {
             List<Node> heads = new List<Node>(lon);
 
