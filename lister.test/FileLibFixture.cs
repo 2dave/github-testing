@@ -44,16 +44,18 @@ namespace TwoDave.Lister.Test
             #region TestAnswer Object Initialization
             //REVERSE ORDER
             //Node a = new Node { data = "a", next = b }; //nope - b does not exist yet
-            Node a = new Node();
-            Node b = new Node();
-            Node c = new Node();
-            Node d = new Node();
-            Node e = new Node();
-            Node f = new Node();
-            Node g = new Node();
-            Node h = new Node();
+            Node h = new Node {data = "h", next = null};
+            Node g = new Node {data = "g", next = h};
+            Node f = new Node {data = "f", next = g};
+            Node e = new Node {data = "e", next = f};
+            Node d = new Node {data = "d", next = e};
+            Node c = new Node {data = "c", next = d};
+            Node b = new Node {data = "b", next = c};
+            Node a = new Node {data = "a", next = b};
 
-            a.data = "a";
+            
+
+           /* a.data = "a";
             a.next = b;
             b.data = "b";
             b.next = c;
@@ -69,7 +71,10 @@ namespace TwoDave.Lister.Test
             g.next = h;
             h.data = "h";
             h.next = null;
-            #endregion
+            */
+            
+            #endregion 
+            
 
             //var data2 = new[] { "a", "b", "c", "d", "e", "f", "g", "h" };
             //Node a = GenerateNodes(data2);
