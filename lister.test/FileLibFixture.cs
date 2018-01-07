@@ -41,9 +41,7 @@ namespace TwoDave.Lister.Test
             var path = @".\data\simple-3-list.txt";
             Node HeadNodeTest = FileLib.ReadCommand(path);
 
-            #region TestAnswer Object Initialization
-            //REVERSE ORDER
-            //Node a = new Node { data = "a", next = b }; //nope - b does not exist yet
+            //REVERSE ORDER - can't start with { data = "a", next = b } because b won't exist at that time            
             Node h = new Node {data = "h", next = null};
             Node g = new Node {data = "g", next = h};
             Node f = new Node {data = "f", next = g};
@@ -52,29 +50,6 @@ namespace TwoDave.Lister.Test
             Node c = new Node {data = "c", next = d};
             Node b = new Node {data = "b", next = c};
             Node a = new Node {data = "a", next = b};
-
-            
-
-           /* a.data = "a";
-            a.next = b;
-            b.data = "b";
-            b.next = c;
-            c.data = "c";
-            c.next = d;
-            d.data = "d";
-            d.next = e;
-            e.data = "e";
-            e.next = f;
-            f.data = "f";
-            f.next = g;
-            g.data = "g";
-            g.next = h;
-            h.data = "h";
-            h.next = null;
-            */
-            
-            #endregion 
-            
 
             //var data2 = new[] { "a", "b", "c", "d", "e", "f", "g", "h" };
             //Node a = GenerateNodes(data2);
