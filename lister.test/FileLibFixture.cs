@@ -41,6 +41,7 @@ namespace TwoDave.Lister.Test
             var path = @".\data\simple-3-list.txt";
             Node HeadNodeTest = FileLib.ReadCommand(path);
 
+            #region To remove later - a learning thread of thought
             //REVERSE ORDER - can't start with { data = "a", next = b } because b won't exist at that time            
             //Node h = new Node { data = "h", next = null };
             //Node g = new Node { data = "g", next = h };
@@ -50,6 +51,7 @@ namespace TwoDave.Lister.Test
             //Node c = new Node { data = "c", next = d };
             //Node b = new Node { data = "b", next = c };
             //Node a = new Node { data = "a", next = b };
+            #endregion
 
             var data2 = new[] { "a", "b", "c", "d", "e", "f", "g", "h" };
             Node a = GenerateNodes(data2);
@@ -73,15 +75,13 @@ namespace TwoDave.Lister.Test
         [Fact]
         public void CanGenerateNodes()
         {
-            //string[] data = new string[3];
-            //data[0] = "a";
-
-            //string[] data3 = {"a", "b", "c"};
+            // better syntax for string[] data3 = {"a", "b", "c"};
             var data2 = new[] { "a", "b", "c", "d", "e", "f", "g", "h" };
 
             Node generated = GenerateNodes(data2);
         }
 
+        // Would like a code review on this block
         private Node GenerateNodes(string[] input)
         {
             Node head = null;
@@ -91,7 +91,7 @@ namespace TwoDave.Lister.Test
             {
                 Node current = new Node();
 
-                current.data = n; // current -> a.data = first string
+                current.data = n;
 
                 if (previous == null)
                 {
@@ -100,7 +100,7 @@ namespace TwoDave.Lister.Test
 
                 if (head == null)
                 {
-                    head = current; // a is now head
+                    head = current;
                 }
 
                 previous.next = current;

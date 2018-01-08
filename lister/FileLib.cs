@@ -20,7 +20,7 @@ namespace TwoDave.Lister
                     Node tempnode1 = null;
                     Node tempnode2 = null;
 
-                    foreach (Node n in newnodes) //Get
+                    foreach (Node n in newnodes) // Get
                     {
                         if (temp[0] == (string)n.data)
                         {
@@ -32,7 +32,7 @@ namespace TwoDave.Lister
                         }
                     }
 
-                    if (tempnode1 == null) //Create
+                    if (tempnode1 == null) // Create
                     {
                         tempnode1 = new Node();
                         tempnode1.data = temp[0];
@@ -63,8 +63,6 @@ namespace TwoDave.Lister
                 }
 
                 Node head = FindHead(newnodes);
-                //Node head = newnodes[2];
-                //DisplayData(head);
 
                 return head;
             }
@@ -89,8 +87,6 @@ namespace TwoDave.Lister
             Console.WriteLine();
         }
 
-        // Used this in order to eliminate the need for a helper DisplayData just to display
-        // Instead I can just use Console.WriteLine on a string
         public static string GenerateString(Node head)
         {
             Node node = head;

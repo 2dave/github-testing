@@ -14,7 +14,6 @@ namespace TwoDave.Lister
             try
             {
                 Node n = FileLib.ReadCommand(path);
-                //FileLib.DisplayData(n);
                 string result = FileLib.GenerateString(n);
                 Console.WriteLine(result);
             }
