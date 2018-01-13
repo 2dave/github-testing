@@ -65,13 +65,13 @@ namespace TwoDave.Lister.Test
         [Fact]
         public void CanFindCorrectHeadNodeParams()
         {
-            Node headNodeTest = FileLib.ReadCommand(@".\data\simple-3-list.txt");
-            Node input = GenerateNodes("a", "b", "c", "d", "e", "f", "g", "h");
+            Node listFromFile = FileLib.ReadCommand(@".\data\simple-3-list.txt");
+            Node generatedList = GenerateNodes("a", "b", "c", "d", "e", "f", "g", "h");
 
-            string TestAnswer = FileLib.GenerateString(headNodeTest);
-            string MyAnswer = FileLib.GenerateString(input);
+            string resultFromFile = FileLib.GenerateString(listFromFile);
+            string resultGeneratedList = FileLib.GenerateString(generatedList);
 
-            Assert.Equal(MyAnswer, TestAnswer);
+            Assert.Equal(resultFromFile, resultGeneratedList);
         }
 
         [Fact]
@@ -130,7 +130,7 @@ namespace TwoDave.Lister.Test
             Assert.Equal("n", x.next.next.next.next.data);
         }
 
-        private Node GenerateNodes(params string[] input)
+        private Node GenerateNodes(params string[] input) 
         {
             Node head = null;
             Node previous = null;
