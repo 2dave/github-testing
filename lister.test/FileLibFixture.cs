@@ -63,6 +63,18 @@ namespace TwoDave.Lister.Test
         }
 
         [Fact]
+        public void CanFindCorrectHeadNodeParams()
+        {
+            Node headNodeTest = FileLib.ReadCommand(@".\data\simple-3-list.txt");
+            Node input = GenerateNodes("a", "b", "c", "d", "e", "f", "g", "h");
+
+            string TestAnswer = FileLib.GenerateString(headNodeTest);
+            string MyAnswer = FileLib.GenerateString(input);
+
+            Assert.Equal(MyAnswer, TestAnswer);
+        }
+
+        [Fact]
         public void CanVerifyOutputCorrectOfManyNodes()
         {
             var path = @".\data\simple-3-list.txt";
@@ -72,7 +84,7 @@ namespace TwoDave.Lister.Test
             Assert.Equal("a > b > c > d > e > f > g > h", x);
         }
 
-                [Fact]
+        [Fact]
         public void CanGenerateEmptyList()
         {
             var data2 = new string[] { };
@@ -106,15 +118,26 @@ namespace TwoDave.Lister.Test
             Assert.Null(y.next);
         }
 
-        // Would like a code review on this block
-        private Node GenerateNodes(string[] input)
+        [Fact]
+        public void CanGenerateManyNodesEasily()
+        {
+            Node x = GenerateNodes("x", "y", "l", "m", "n");
+
+            Assert.Equal("x", x.data);
+            Assert.Equal("y", x.next.data);
+            Assert.Equal("l", x.next.next.data);
+            Assert.Equal("m", x.next.next.next.data);
+            Assert.Equal("n", x.next.next.next.next.data);
+        }
+
+        private Node GenerateNodes(params string[] input)
         {
             Node head = null;
             Node previous = null;
 
             foreach (string n in input)
             {
-                Node current = new Node();
+                var current = new Node();
 
                 current.data = n;
 
