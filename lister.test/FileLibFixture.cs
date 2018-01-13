@@ -72,13 +72,38 @@ namespace TwoDave.Lister.Test
             Assert.Equal("a > b > c > d > e > f > g > h", x);
         }
 
-        [Fact]
-        public void CanGenerateNodes()
+                [Fact]
+        public void CanGenerateEmptyList()
         {
-            // better syntax for string[] data3 = {"a", "b", "c"};
-            var data2 = new[] { "a", "b", "c", "d", "e", "f", "g", "h" };
+            var data2 = new string[] { };
 
             Node generated = GenerateNodes(data2);
+
+            Assert.Null(generated);
+        }
+
+        [Fact]
+        public void CanGenerateSingleNode()
+        {
+            var data2 = new[] { "a" };
+
+            Node generated = GenerateNodes(data2);
+
+            Assert.Equal("a", generated.data);
+            Assert.Null(generated.next);
+        }
+
+        [Fact]
+        public void CanGenerateTwoNodes()
+        {
+            var data2 = new[] { "x", "y" };
+
+            Node x = GenerateNodes(data2);
+            Assert.Equal("x", x.data);
+
+            var y = x.next;
+            Assert.Equal("y", y.data);
+            Assert.Null(y.next);
         }
 
         // Would like a code review on this block
@@ -93,17 +118,15 @@ namespace TwoDave.Lister.Test
 
                 current.data = n;
 
-                if (previous == null)
-                {
-                    previous = current;
-                }
-
                 if (head == null)
                 {
                     head = current;
                 }
 
-                previous.next = current;
+                if (previous != null)
+                {
+                    previous.next = current;
+                }
 
                 previous = current;
             }
