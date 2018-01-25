@@ -9,12 +9,13 @@ namespace TwoDave.Lister
         static int Main(string[] args)
         {
             var path = @".\data\simple-3-list.txt";
-
             Console.WriteLine("Data file: {0}", path);
 
             try
             {
-                FileLib.ReadCommand(path);
+                Node n = FileLib.ReadCommand(path);
+                string result = FileLib.GenerateString(n);
+                Console.WriteLine(result);
             }
             catch (FileNotFoundException e)
             {
@@ -23,11 +24,5 @@ namespace TwoDave.Lister
             }
             return 0;
         }
-
-/*         private static void DisplayList(NodeCollection data)
-        {
-            //data.PrintList();
-            Console.WriteLine("Debugging:");
-        } */
     }
 }

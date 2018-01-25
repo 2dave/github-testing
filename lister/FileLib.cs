@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace TwoDave.Lister
 {
-    internal class FileLib
+    public class FileLib
     {
-        public static void ReadCommand(string path)
+        public static Node ReadCommand(string path)
         {
             using (StreamReader file = new StreamReader(path))
             {
@@ -20,7 +20,7 @@ namespace TwoDave.Lister
                     Node tempnode1 = null;
                     Node tempnode2 = null;
 
-                    foreach (Node n in newnodes) //Get
+                    foreach (Node n in newnodes) // Get
                     {
                         if (temp[0] == (string)n.data)
                         {
@@ -32,7 +32,7 @@ namespace TwoDave.Lister
                         }
                     }
 
-                    if (tempnode1 == null) //Create
+                    if (tempnode1 == null) // Create
                     {
                         tempnode1 = new Node();
                         tempnode1.data = temp[0];
@@ -63,8 +63,8 @@ namespace TwoDave.Lister
                 }
 
                 Node head = FindHead(newnodes);
-                //Node head = newnodes[2];
-                DisplayData(head);
+
+                return head;
             }
         }
 
@@ -85,6 +85,27 @@ namespace TwoDave.Lister
             }
 
             Console.WriteLine();
+        }
+
+        public static string GenerateString(Node head)
+        {
+            Node node = head;
+            string result = string.Empty;
+
+            while (node != null)
+            {
+                //Console.Write(node.data);
+                result += node.data;
+
+                if (node.next != null)
+                {                    
+                    //Console.Write(" > ");
+                    result += " > ";
+                }
+
+                node = node.next;
+            }                     
+           return result;
         }
 
         public static Node FindHead(List<Node> lon)
